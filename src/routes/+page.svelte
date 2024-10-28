@@ -21,11 +21,11 @@
     constructor() {
       this.x = Math.random() * windowSize.width;
       this.y = Math.random() * windowSize.height;
-      this.baseSize = Math.random() * 3 + 1;
+      this.baseSize = Math.random() * 4 + 2;
       this.size = this.baseSize;
-      this.speedX = Math.random() * 3 - 1.5;
-      this.speedY = Math.random() * 3 - 1.5;
-      this.color = "rgba(100, 255, 218, 0.8)";
+      this.speedX = Math.random() * 2 - 1;
+      this.speedY = Math.random() * 2 - 1;
+      this.color = "rgba(100, 255, 218, 0.9)";
       this.angle = Math.random() * Math.PI * 2;
       this.pulseFactor = Math.random() * 0.1 + 0.95;
     }
@@ -42,9 +42,9 @@
         const force = (120 - distance) / 120;
         this.speedX += dx * force * 0.01;
         this.speedY += dy * force * 0.01;
-        this.color = `hsl(${Math.floor((1 - force) * 170)}, 100%, 60%)`;
+        this.color = `hsla(${Math.floor((1 - force) * 170)}, 100%, 65%, 0.95)`;
       } else {
-        this.color = "rgba(100, 255, 218, 0.8)";
+        this.color = "rgba(100, 255, 218, 0.9)";
       }
 
       this.x += this.speedX;
@@ -62,12 +62,17 @@
     draw(ctx: CanvasRenderingContext2D) {
       ctx.fillStyle = this.color;
       ctx.strokeStyle = this.color;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 1.5;
+
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = this.color;
 
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.closePath();
       ctx.fill();
+
+      ctx.shadowBlur = 0;
     }
   }
 
@@ -95,7 +100,7 @@
         const distance = Math.sqrt(dx * dx + dy * dy);
         if (distance < 100) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(100, 255, 218, ${1 - distance / 100})`;
+          ctx.strokeStyle = `rgba(100, 255, 218, ${(1 - distance / 100) * 0.8})`;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.stroke();
