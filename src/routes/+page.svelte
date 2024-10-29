@@ -135,6 +135,8 @@
   });
 </script>
 
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+
 <div class="relative w-full h-screen overflow-hidden bg-gray-900">
   <canvas bind:this={canvas} class="absolute top-0 left-0 w-full h-full" />
   <div
@@ -144,28 +146,29 @@
       class="bg-gray-800 bg-opacity-50 p-8 rounded-lg backdrop-filter backdrop-blur-lg max-w-2xl w-full"
     >
       <img
-        src="/placeholder.svg"
+        src="/FCD66788-1C58-48AA-9CC5-87A52BAE84A9.jpeg"
         alt="Nikos Skliris"
-        width="150"
-        height="150"
         class="rounded-full mx-auto mb-4 border-4 border-teal-400"
+        style="width: 150px; height: 150px; object-fit: cover;"
       />
       <h1 class="text-4xl font-bold mb-2 text-center">Nikos Skliris</h1>
       <p class="text-xl mb-4 text-center text-teal-400">
         Full Stack Software Engineer
       </p>
       <div class="flex justify-center space-x-4 mb-6">
-        <a href="#" class="text-teal-400 hover:text-teal-300 transition-colors">
+        <a
+          href="https://github.com/hyoox"
+          target="_blank"
+          class="text-teal-400 hover:text-teal-300 transition-colors"
+        >
           <Github size={24} />
         </a>
-        <a href="#" class="text-teal-400 hover:text-teal-300 transition-colors">
+        <a
+          href="https://gr.linkedin.com/in/nikolaos-skliris-40b3b219b"
+          target="_blank"
+          class="text-teal-400 hover:text-teal-300 transition-colors"
+        >
           <Linkedin size={24} />
-        </a>
-        <a href="#" class="text-teal-400 hover:text-teal-300 transition-colors">
-          <Code size={24} />
-        </a>
-        <a href="#" class="text-teal-400 hover:text-teal-300 transition-colors">
-          <Terminal size={24} />
         </a>
       </div>
       <p class="text-center max-w-md mx-auto mb-6">
@@ -174,7 +177,7 @@
         for user experience and performance optimization.
       </p>
       <div class="flex flex-wrap justify-center gap-2">
-        {#each ["JavaScript", "TypeScript", "React", "Node.js", "Python", "Docker", "AWS", "GraphQL"] as skill}
+        {#each ["JavaScript", "TypeScript", "Svelte", "Node.js", "Python", "Docker", "Google Cloud", "PostgreSQL"] as skill}
           <span
             class="bg-teal-700 text-teal-100 px-3 py-1 rounded-full text-sm"
           >
