@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-auto";
+import adapter from "@sveltejs/adapter-static";
 import { preprocessMeltUI } from "@melt-ui/pp";
 import sequence from "svelte-sequential-preprocessor";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
@@ -8,6 +8,9 @@ const config = {
   preprocess: sequence([vitePreprocess(), preprocessMeltUI()]),
   kit: {
     adapter: adapter(),
+    paths: {
+      base: "/portfolio",
+    },
   },
 };
 
