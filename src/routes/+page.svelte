@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { Github, Linkedin, Code, Terminal } from "lucide-svelte";
+  import { base } from "$app/paths";
 
   let canvas: HTMLCanvasElement;
   let windowSize = { width: 0, height: 0 };
@@ -135,10 +136,11 @@
   });
 </script>
 
-<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
 
 <div class="relative w-full h-screen overflow-hidden bg-gray-900">
-  <canvas bind:this={canvas} class="absolute top-0 left-0 w-full h-full" />
+  <canvas bind:this={canvas} class="absolute top-0 left-0 w-full h-full"
+  ></canvas>
   <div
     class="relative z-10 flex flex-col items-center justify-center h-full text-white"
   >
@@ -146,7 +148,7 @@
       class="bg-gray-800 bg-opacity-50 p-8 rounded-lg backdrop-filter backdrop-blur-lg max-w-2xl w-full"
     >
       <img
-        src="/FCD66788-1C58-48AA-9CC5-87A52BAE84A9.jpeg"
+        src="{base}/FCD66788-1C58-48AA-9CC5-87A52BAE84A9.jpeg"
         alt="Nikos Skliris"
         class="rounded-full mx-auto mb-4 border-4 border-teal-400"
         style="width: 150px; height: 150px; object-fit: cover;"

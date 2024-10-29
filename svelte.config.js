@@ -7,9 +7,15 @@ import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 const config = {
   preprocess: sequence([vitePreprocess(), preprocessMeltUI()]),
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      pages: "build",
+      assets: "build",
+      fallback: "index.html",
+      strict: false,
+    }),
     paths: {
       base: "/portfolio",
+      assets: "/portfolio",
     },
   },
 };
